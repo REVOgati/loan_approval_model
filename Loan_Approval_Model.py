@@ -168,40 +168,6 @@ print('''SYLY = Self-Employed Yes, Loan Status Y
 
 raw_data['Credit_History'].value_counts().plot(kind='pie',autopct='%2.2f%%',title="Visualization of Loan applicants based on Credit History")
 
-
-# In[ ]:
-
-
-#Analyzing loan approvals based or Property_Area
-property_area_col= raw_data['Property_Area'].value_counts()
-loan_status_col= raw_data['Loan_Status'].value_counts()
-grouped_data = raw_data.groupby([property_area_col,loan_status_col]).size().unstack()
-
-# Getting the categories and their positions
-categories = grouped_data.columns
-x = range(len(grouped_data))
-
-# Plotting the bar chart
-fig, ax = plt.subplots()
-bar_width = 0.35
-
-bar1 = ax.bar(x, grouped_data[categories[0]], bar_width, label=categories[0])
-bar2 = ax.bar([i + bar_width for i in x], grouped_data[categories[1]], bar_width, label=categories[1])
-
-# Adding labels and title
-ax.set_xlabel('Property Area')
-ax.set_ylabel('Count')
-ax.set_title('Loan Status by Property Area')
-ax.set_xticks([i + bar_width/2 for i in x])
-ax.set_xticklabels(grouped_data.index)
-
-# Adding a legend
-ax.legend()
-
-# Display the plot
-plt.show()
-
-
 # A huge % of loan applicants have a positive credit history represented by 1.0 . This means most loan applicants are actively repaying past loans.
 
 # In[ ]:
