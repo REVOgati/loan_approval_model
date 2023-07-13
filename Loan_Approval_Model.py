@@ -21,7 +21,7 @@ import sklearn
 # In[ ]:
 
 
-raw_data = pd.read_csv('loan_prediction.csv') #importing the csv file to our code,gets converted to dataframe 
+raw_data = pd.read_csv(loan_approval_data.csv) #importing the csv file to our code,gets converted to dataframe 
 
 
 # -Data Manipulation and Analysis should be a simple and clear process.
